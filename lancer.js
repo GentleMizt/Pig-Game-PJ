@@ -8,4 +8,5 @@ const diceImg = document.querySelector('.dice');
 p1Score.textContent = 0;
 p2Score.textContent = 0;
 
-
+// Hiding the dice at the start of the game.
+diceImg.classList.add('hidden');
