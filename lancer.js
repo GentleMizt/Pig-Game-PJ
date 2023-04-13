@@ -43,5 +43,8 @@ btnRoll.addEventListener('click', function () {
     document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
     activePlayer = activePlayer === 0 ? 1 : 0;
+
+    p1.classList.toggle('player--active');
+    p2.classList.toggle('player--active');
   }
 });
