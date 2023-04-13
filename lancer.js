@@ -1,6 +1,8 @@
 'use strict';
 
 // Selecting HTML elements using the DOM
+const p1 = document.querySelector('.player--0');
+const p2 = document.querySelector('.player--1');
 const p1Score = document.getElementById('score--0');
 const p2Score = document.getElementById('score--1');
 const p1Current = document.getElementById('current--0');
@@ -38,6 +40,7 @@ btnRoll.addEventListener('click', function () {
       currentScore;
   } else {
     // switch to next player.
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
     activePlayer = activePlayer === 0 ? 1 : 0;
   }
