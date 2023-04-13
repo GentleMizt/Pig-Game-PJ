@@ -23,6 +23,8 @@ const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 
+let playing = true;
+
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
@@ -34,41 +36,48 @@ const switchPlayer = function () {
 
 // ROLLING THE DICE
 btnRoll.addEventListener('click', function () {
-  // 1. Generating a random dice
-  const dice = Math.trunc(Math.random() * 6) + 1;
+  if (playing) {
+    // 1. Generating a random dice
+    const dice = Math.trunc(Math.random() * 6) + 1;
 
-  // 2. Display dice
-  diceImg.classList.remove('hidden');
-  diceImg.src = `imgs/dice-${dice}.png`;
+    // 2. Display dice
+    diceImg.classList.remove('hidden');
+    diceImg.src = `imgs/dice-${dice}.png`;
 
-  // 3. Check for rolled 1. switch to next player.
-  if (dice !== 1) {
-    // Add dice to current score
-    currentScore += dice;
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore;
-  } else {
-    // switch to next player.
-    switchPlayer();
+    // 3. Check for rolled 1. switch to next player.
+    if (dice !== 1) {
+      // Add dice to current score
+      currentScore += dice;
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentScore;
+    } else {
+      // switch to next player.
+      switchPlayer();
+    }
   }
 });
 
 btnHold.addEventListener('click', function () {
-  // 1. Add Current score to the score of the active player
-  scores[activePlayer] += currentScore;
-  document.getElementById(`score--${activePlayer}`).textContent =
-    scores[activePlayer];
+  if (playing) {
+    // 1. Add Current score to the score of the active player
+    scores[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
 
-  //3.  Check if score is at least 100, if so finish the game and if not switch to the next player
-  if (scores[activePlayer] >= 20) {
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.add('player--winner');
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.remove('player--active');
-  } else {
-    // Switching to the next player
-    switchPlayer();
+    //3.  Check if score is at least 100, if so finish the game and if not switch to the next player
+    if (scores[activePlayer] >= 20) {
+      // finish the game
+      playing = false;
+      diceImg.classList.add('hidden');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+    } else {
+      // Switching to the next player
+      switchPlayer();
+    }
   }
 });
