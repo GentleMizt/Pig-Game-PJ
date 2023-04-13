@@ -16,7 +16,10 @@ p2Score.textContent = 0;
 // Hiding the dice at the start of the game.
 diceImg.classList.add('hidden');
 
+const scores = [0, 0];
+
 let currentScore = 0;
+let activePlayer = 0;
 
 // ROLLING THE DICE
 btnRoll.addEventListener('click', function () {
@@ -31,8 +34,11 @@ btnRoll.addEventListener('click', function () {
   if (dice !== 1) {
     // Add dice to current score
     currentScore += dice;
-    p1Current.textContent = currentScore; // CHANGE LATER 
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
   } else {
     // switch to next player.
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
   }
 });
