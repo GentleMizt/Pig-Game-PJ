@@ -23,14 +23,14 @@ const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 
-const switchPlayer = function (){
-    document.getElementById(`current--${activePlayer}`).textContent = 0;
-    currentScore = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
+const switchPlayer = function () {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
 
-    p1.classList.toggle('player--active');
-    p2.classList.toggle('player--active');
-}
+  p1.classList.toggle('player--active');
+  p2.classList.toggle('player--active');
+};
 
 // ROLLING THE DICE
 btnRoll.addEventListener('click', function () {
@@ -59,8 +59,16 @@ btnHold.addEventListener('click', function () {
   document.getElementById(`score--${activePlayer}`).textContent =
     scores[activePlayer];
 
-    // 2. Switching to the next player
-    switchPlayer();
-
   //3.  Check if score is at least 100, if so finish the game and if not switch to the next player
+  if (scores[activePlayer] >= 100) {
+    document.querySelector(
+      `player--${activePlayer}`.classList.add('player--winner')
+    );
+    document.querySelector(
+      `player--${activePlayer}`.classList.remove('player--active')
+    );
+  } else {
+    // Switching to the next player
+    switchPlayer();
+  }
 });
