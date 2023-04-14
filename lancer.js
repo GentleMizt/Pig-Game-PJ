@@ -81,3 +81,14 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+btnNew.addEventListener('click', function(){
+    document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--winner');
+    
+    p1Score.textContent = 0;
+    p2Score.textContent = 0;
+    p1Current.textContent = 0;
+    p2Current.textContent = 0;
+})
