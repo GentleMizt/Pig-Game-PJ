@@ -13,17 +13,23 @@ const btnNew = document.querySelector('.btn--new');
 const btnHold = document.querySelector('.btn--hold');
 
 // Game Starting Conditions
-p1Score.textContent = 0;
-p2Score.textContent = 0;
-// Hiding the dice at the start of the game.
-diceImg.classList.add('hidden');
+const initialize = function () {
+    const scores = [0, 0];
+    let currentScore = 0;
+    let activePlayer = 0;
+    let playing = true;
 
-const scores = [0, 0];
+    p1Score.textContent = 0;
+    p2Score.textContent = 0;
+    p1Current.textContent = 0;
+    p2Current.textContent = 0;
+    diceImg.classList.add('hidden');
 
-let currentScore = 0;
-let activePlayer = 0;
-
-let playing = true;
+    p1.classList.remove('player--winner');
+    p2.classList.remove('player--winner');
+    p1.classList.add('player--active');
+    p2.classList.remove('player--active');
+};
 
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -110,13 +116,4 @@ btnHold.addEventListener('click', function () {
 // });
 
 //JONAS' SOLUTION
-btnNew.addEventListener('click', function () {
-  p1Score.textContent = 0;
-  p2Score.textContent = 0;
-  p1Current.textContent = 0;
-  p2Current.textContent = 0;
-  p1.classList.remove('player--winner');
-  p2.classList.remove('player--winner');
-  p1.classList.add('player--active');
-  p2.classList.remove('player--active');
-});
+btnNew.addEventListener('click', function () {});
