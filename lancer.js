@@ -82,6 +82,7 @@ btnHold.addEventListener('click', function () {
   }
 });
 
+// MY SOLUTION TO THE CHALLENGE
 // btnNew.addEventListener('click', function () {
 //   p1Score.textContent = 0;
 //   p2Score.textContent = 0;
@@ -108,6 +109,7 @@ btnHold.addEventListener('click', function () {
 //   }
 // });
 
+//JONAS' SOLUTION
 btnNew.addEventListener('click', function () {
   p1Score.textContent = 0;
   p2Score.textContent = 0;
@@ -115,8 +117,6 @@ btnNew.addEventListener('click', function () {
   p2Current.textContent = 0;
   p1.classList.remove('player--winner');
   p2.classList.remove('player--winner');
-  p1.classList.remove('player--active');
+  p1.classList.add('player--active');
   p2.classList.remove('player--active');
-
-
 });
