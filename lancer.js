@@ -85,9 +85,11 @@ btnHold.addEventListener('click', function () {
 btnNew.addEventListener('click', function () {
   playing = true;
   if (playing) {
+    diceImg.classList.add('hidden');
     document
       .querySelector(`.player--${activePlayer}`)
       .classList.remove('player--winner');
+
     p1.classList.add('player--active');
     p1Score.textContent = 0;
     p2Score.textContent = 0;
