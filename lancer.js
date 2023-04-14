@@ -82,13 +82,16 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-btnNew.addEventListener('click', function(){
+btnNew.addEventListener('click', function () {
+  playing = true;
+  if (playing) {
     document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove('player--winner');
-    
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--winner');
+    p1.classList.add('player--active');
     p1Score.textContent = 0;
     p2Score.textContent = 0;
     p1Current.textContent = 0;
     p2Current.textContent = 0;
-})
+  }
+});
