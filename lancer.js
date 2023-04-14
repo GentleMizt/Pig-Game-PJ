@@ -90,11 +90,11 @@ btnNew.addEventListener('click', function () {
       .querySelector(`.player--${activePlayer}`)
       .classList.remove('player--winner');
 
-    // p1.classList.add('player--active');
-    if (!p1.classList.contains('player--active')) {
-      p1.classList.add('player--active');
-      p2.classList.remove('player--active');
-    }
+    p1.classList.add('player--active');
+    // if (!p1.classList.contains('player--active')) {
+    //   p1.classList.add('player--active');
+    //   p2.classList.remove('player--active');
+    // }
     p1Score.textContent = 0;
     p2Score.textContent = 0;
     p1Current.textContent = 0;
