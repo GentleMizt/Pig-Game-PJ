@@ -108,6 +108,15 @@ btnHold.addEventListener('click', function () {
 //   }
 // });
 
-btnNew.addEventListener('click', function(){
+btnNew.addEventListener('click', function () {
+  p1Score.textContent = 0;
+  p2Score.textContent = 0;
+  p1Current.textContent = 0;
+  p2Current.textContent = 0;
+  p1.classList.remove('player--winner');
+  p2.classList.remove('player--winner');
+  p1.classList.remove('player--active');
+  p2.classList.remove('player--active');
+
 
 });
