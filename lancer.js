@@ -82,28 +82,30 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-btnNew.addEventListener('click', function () {
-  p1Score.textContent = 0;
-  p2Score.textContent = 0;
-  p1Current.textContent = 0;
-  p2Current.textContent = 0;
-  playing = true;
-  if (playing) {
-    diceImg.classList.add('hidden');
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.remove('player--winner');
+// btnNew.addEventListener('click', function () {
+//   p1Score.textContent = 0;
+//   p2Score.textContent = 0;
+//   p1Current.textContent = 0;
+//   p2Current.textContent = 0;
+//   playing = true;
+//   if (playing) {
+//     diceImg.classList.add('hidden');
+//     document
+//       .querySelector(`.player--${activePlayer}`)
+//       .classList.remove('player--winner');
 
-    //   p1.classList.add('player--active');
-    if (p2.classList.contains('player--active')) {
-      p2.classList.remove('player--active');
-      p1.classList.add('player--active');
-      if (dice !== 1) {
-        // Add dice to current score
-        currentScore += dice;
-        document.getElementById(`current--${activePlayer}`).textContent =
-          currentScore;
-      }
-    }
-  }
-});
+//     //   p1.classList.add('player--active');
+//     if (p2.classList.contains('player--active')) {
+//       p2.classList.remove('player--active');
+//       p1.classList.add('player--active');
+//       if (dice !== 1) {
+//         // Add dice to current score
+//         currentScore += dice;
+//         document.getElementById(`current--0`).textContent =
+//           currentScore;
+//       }
+//     }
+//   }
+// });
+
+// btnNew.addEventListener('click')
