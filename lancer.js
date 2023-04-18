@@ -35,6 +35,7 @@ const initialize = function () {
 
 initialize();
 
+// Switching the players
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
