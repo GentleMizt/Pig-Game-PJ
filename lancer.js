@@ -16,21 +16,21 @@ const btnHold = document.querySelector('.btn--hold');
 let scores, currentScore, activePlayer, playing;
 
 const initialize = function () {
-    scores = [0, 0];
-    currentScore = 0;
-    activePlayer = 0;
-    playing = true;
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
 
-    p1Score.textContent = 0;
-    p2Score.textContent = 0;
-    p1Current.textContent = 0;
-    p2Current.textContent = 0;
-    diceImg.classList.add('hidden');
+  p1Score.textContent = 0;
+  p2Score.textContent = 0;
+  p1Current.textContent = 0;
+  p2Current.textContent = 0;
+  diceImg.classList.add('hidden');
 
-    p1.classList.remove('player--winner');
-    p2.classList.remove('player--winner');
-    p1.classList.add('player--active');
-    p2.classList.remove('player--active');
+  p1.classList.remove('player--winner');
+  p2.classList.remove('player--winner');
+  p1.classList.add('player--active');
+  p2.classList.remove('player--active');
 };
 
 initialize();
@@ -75,7 +75,7 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     //3.  Check if score is at least 100, if so finish the game and if not switch to the next player
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 30) {
       // finish the game
       playing = false;
       diceImg.classList.add('hidden');
